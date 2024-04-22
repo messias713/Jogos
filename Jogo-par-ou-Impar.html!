@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vamos jogar o jogo. Par ou impar.</title>
+</head>
+<body>
+  <h1 style="color:#B22222;">Nós somos a Caty e o Joy.<br>Vamos jogar o par ou impar!</h1>
+<pre background-color:#F4A460;>
+  <img src="https://media.tenor.com/bzT_9nvN-ycAAAAC/yeincals-joy.gif"width="100%"><br>
+  Eu sou a Caty!
+  <img src="https://media.tenor.com/v01HWAX1diEAAAAC/love-love-you.gif"width="100%"><br>
+  Eu sou o Joy!
+</pre>
+<p>Por favor, forneça as seguintes informações:</p>
+
+<label for="nome">Nome:</label>
+<input type="text" id="nome"><br><br>
+
+<label for="idade">Idade:</label>
+<input type="number" id="idade"><br><br>
+
+<label for="pais">País:</label>
+<input type="text" id="pais"><br><br>
+
+<label for="genero">Gênero:</label>
+<select id="genero">
+    <option value="masculino">Masculino</option>
+    <option value="feminino">Feminino</option>
+</select><br><br>
+
+<button onclick="obterInformacoes()">Enviar</button>
+
+<p id="informacoes"></p>
+<h2 style="color:#000080;">Vamos jogar o par ou impar!</h2>
+
+	<p>Digite um número para verificar se é par ou ímpar:</p>
+
+	<input type="number" id="numero">
+
+	<button onclick="verificarParImpar()">Verificar</button>
+
+	<p id="resultado"></p>
+
+<script>
+    function obterInformacoes() {
+        let nome = document.getElementById("nome").value;
+        let idade = document.getElementById("idade").value;
+        let pais = document.getElementById("pais").value;
+        let genero = document.getElementById("genero").value;
+
+        let informacoes = "Nome: " + nome + "<br>";
+        informacoes += "Idade: " + idade + "<br>";
+        informacoes += "País: " + pais + "<br>";
+        informacoes += "Gênero: " + genero + "<br>";
+
+        document.getElementById("informacoes").innerHTML = informacoes;
+    }
+    	function verificarParImpar() {
+			let numero = document.getElementById("numero").value;
+
+			if (numero % 2 == 0) {
+				document.getElementById("resultado").innerHTML = "O número " + numero + " é par.";
+			} else {
+				document.getElementById("resultado").innerHTML = "O número " + numero + " é ímpar.";
+			}
+		}
+
+		let contador = 0;
+
+		while (contador < 100) {
+			console.log("Contador: " + contador);
+			contador++;
+		}
+		
+</script>
+
+</body>
+</html>
