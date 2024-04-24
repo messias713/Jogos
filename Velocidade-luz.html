@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<center>
+<head>
+ <title>Movimento em Curvas Universais</title>
+ <style>
+ #container {
+ width: 500px;
+ height: 500px;
+ position: relative;
+ border: 1px solid #000;
+ overflow: hidden;
+ }
+ #object {
+ width: 50px;
+ height: 50px;
+ background-color: #FF0000;
+ position: absolute;
+ border-radius: 50%;
+ }
+ #message {
+ position: absolute;
+ top: 20px;
+ left: 20px;
+ font-size: 16px;
+ }
+ </style>
+</head>
+<body>
+ <h1>Movimento em Curvas Universais</h1>
+ <div id="container">
+ <div id="object"></div>
+ <div id="message" style="color:#0000CD;">A gravidade não existe e o tempo para na velocidade da luz</div>
+ </div>
+ <script>
+ const container = document.getElementById('container');
+ const object = document.getElementById('object');
+ 
+ const speedOfLight = 300000000; // m/s (velocidade da luz)
+ const radius = 200; // Raio da curva (em pixels)
+ let angle = 0; // Ângulo inicial
+ let centerX = container.offsetWidth / 2;
+ let centerY = container.offsetHeight / 2;
+ function moveObject() {
+ // Calcula a posição do objeto na curva
+ const x = centerX + radius * Math.cos(angle);
+ const y = centerY + radius * Math.sin(angle);
+ // Atualiza a posição do objeto
+ object.style.left = x + 'px';
+ object.style.top = y + 'px';
+ // Incrementa o ângulo para simular o movimento na curva
+ angle += (speedOfLight / radius) * 0.01; // Velocidade ajustável para visualização
+ // Mantém o ângulo dentro do intervalo de 0 a 2*pi
+ if (angle >= 2 * Math.PI) {
+ angle -= 2 * Math.PI;
+ }
+ requestAnimationFrame(moveObject);
+ }
+ moveObject();
+ </script>
+</body>
+</center>
+</html>
